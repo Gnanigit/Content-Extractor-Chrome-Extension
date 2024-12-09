@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Content Extractor",
+  "version": "1.0",
+  "description": "Extract the entire content of the current page and display it in a popup.",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["<all_urls>"],
+
+  "action": {
+    "default_popup": "index.html"
+  }
+}
