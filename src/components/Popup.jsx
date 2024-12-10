@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Popup.css"; // Import the external CSS file
 
 const Popup = () => {
   const [content, setContent] = useState("");
@@ -23,17 +24,37 @@ const Popup = () => {
     }
   };
 
+  const copyToClipboard = () => {
+    if (content) {
+      navigator.clipboard
+        .writeText(content)
+        .then(() => {
+          alert("Content copied to clipboard!");
+        })
+        .catch((err) => {
+          console.error("Error copying content:", err);
+        });
+    }
+  };
+
   return (
-    <div style={{ padding: "10px", width: "300px" }}>
-      <h1>Content Extractor</h1>
-      <button onClick={extractContent} style={{ marginBottom: "10px" }}>
-        Extract Content
-      </button>
-      <textarea
-        value={content}
-        readOnly
-        style={{ width: "100%", height: "200px" }}
-      />
+    <div className="popup-container">
+      <div className="popup-box">
+        <h1 className="popup-title">Text Extractor</h1>
+        <div className="popup-actions">
+          <button className="popup-button" onClick={extractContent}>
+            <span>Extract Text</span>
+          </button>
+          <button className="popup-button" onClick={copyToClipboard}>
+            <span>Copy Text</span>
+          </button>
+        </div>
+        <textarea
+          className="popup-textarea"
+          value={content}
+          readOnly
+        ></textarea>
+      </div>
     </div>
   );
 };

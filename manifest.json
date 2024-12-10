@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Content Extractor",
+  "name": "Text Extractor",
   "version": "1.0",
   "description": "Extract the entire content of the current page and display it in a popup.",
   "permissions": ["activeTab", "scripting"],
